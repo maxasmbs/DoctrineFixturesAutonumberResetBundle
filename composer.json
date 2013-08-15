@@ -3,5 +3,9 @@
     "require": {
         "php": ">=5.3.3",
         "doctrine/doctrine-fixtures-bundle": "2.1.*@dev"
-    }
+    },
+    "autoload": {
+        "psr-0": { "Littlejon\\DoctrineFixturesAutonumberResetBundle": "" }
+    },
+
 }
