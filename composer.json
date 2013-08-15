@@ -6,5 +6,6 @@
     },
     "autoload": {
         "psr-0": { "Littlejon\\DoctrineFixturesAutonumberResetBundle": "" }
-    }
+    },
+    "target-dir": "Littlejon/DoctrineFixturesAutonumberResetBundle"
 }
