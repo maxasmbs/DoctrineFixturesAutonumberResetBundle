@@ -4,10 +4,11 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3.3",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
     },
     "autoload": {
         "psr-0": { "Migmolrod\\DoctrineFixturesAutonumberResetBundle": "" }
     },
     "target-dir": "Migmolrod/DoctrineFixturesAutonumberResetBundle"
+    "minimum-stability": "stable"
 }
