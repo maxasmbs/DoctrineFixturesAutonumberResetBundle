@@ -9,6 +9,6 @@
     "autoload": {
         "psr-0": { "Migmolrod\\DoctrineFixturesAutonumberResetBundle": "" }
     },
-    "target-dir": "Migmolrod/DoctrineFixturesAutonumberResetBundle"
+    "target-dir": "Migmolrod/DoctrineFixturesAutonumberResetBundle",
     "minimum-stability": "stable"
 }
