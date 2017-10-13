@@ -1,6 +1,6 @@
 <?php
 
-namespace Migmolrod\DoctrineFixturesAutonumberResetBundle\Command;
+namespace MaxASMBS\DoctrineFixturesAutonumberResetBundle\Command;
 
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
 use Symfony\Component\Console\Input\InputInterface;
