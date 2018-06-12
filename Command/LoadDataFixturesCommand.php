@@ -1,6 +1,6 @@
 <?php
 
-namespace MaxASMBS\DoctrineFixturesAutonumberResetBundle\Command;
+namespace MaxwellMc\DoctrineFixturesAutonumberResetBundle\Command;
 
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,8 +19,15 @@ class LoadDataFixturesCommand extends DoctrineCommand
             ->addOption('em', null, InputOption::VALUE_REQUIRED, 'The entity manager to use for this command.');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     * @throws \Exception
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** @var $doctrine \Doctrine\Common\Persistence\ManagerRegistry */
         $doctrine = $this->getContainer()->get('doctrine');
         $em = $doctrine->getManager($input->getOption('em'));
 
@@ -33,6 +40,8 @@ class LoadDataFixturesCommand extends DoctrineCommand
         $purger->purge();
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
+        $message = sprintf('resetting auto-increment values for %d tables', count($metadatas));
+        $output->writeln(sprintf('  <comment>></comment> <info>%s</info>', $message));
         foreach ($metadatas as $metadata) {
             if (!$metadata->isMappedSuperclass) {
                 $tbl = $metadata->getQuotedTableName($platform);
