@@ -1,5 +1,5 @@
 {
-    "name": "maxasmbs/doctrine-fixtures-autonumber-reset-bundle",
+    "name": "maxwellmc/doctrine-fixtures-autonumber-reset-bundle",
     "description": "Symfony2 Bundle to automatically reset the AUTO_INCREMENT value to 1 when using MySQL and foreign key constraints and Doctrine Data Fixtures",
     "license": "MIT",
     "require": {
@@ -7,8 +7,8 @@
         "doctrine/doctrine-fixtures-bundle": "2.4.* || ^3.0"
     },
     "autoload": {
-        "psr-0": { "MaxASMBS\\DoctrineFixturesAutonumberResetBundle": "" }
+        "psr-0": { "MaxwellMc\\DoctrineFixturesAutonumberResetBundle": "" }
     },
-    "target-dir": "MaxASMBS/DoctrineFixturesAutonumberResetBundle",
+    "target-dir": "MaxwellMc/DoctrineFixturesAutonumberResetBundle",
     "minimum-stability": "stable"
 }
