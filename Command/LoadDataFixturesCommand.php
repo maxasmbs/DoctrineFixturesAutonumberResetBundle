@@ -3,6 +3,7 @@
 namespace MaxwellMc\DoctrineFixturesAutonumberResetBundle\Command;
 
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -11,7 +12,21 @@ use Symfony\Component\Console\Input\ArrayInput;
 
 class LoadDataFixturesCommand extends DoctrineCommand
 {
-    protected function configure()
+	/** @var ManagerRegistry */
+	private $doctrine;
+
+	/**
+	 * LoadDataFixturesCommand constructor.
+	 *
+	 * @param ManagerRegistry $doctrine
+	 */
+	public function __construct( ManagerRegistry $doctrine ) {
+		parent::__construct($doctrine);
+
+		$this->doctrine = $doctrine;
+	}
+
+	protected function configure()
     {
         $this
             ->setName("doctrine:fixtures:resetload")
@@ -27,9 +42,7 @@ class LoadDataFixturesCommand extends DoctrineCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var $doctrine \Doctrine\Common\Persistence\ManagerRegistry */
-        $doctrine = $this->getContainer()->get('doctrine');
-        $em = $doctrine->getManager($input->getOption('em'));
+        $em = $this->doctrine->getManager($input->getOption('em'));
 
         // Get platform parameters
         $platform = $em->getConnection()->getDatabasePlatform();
